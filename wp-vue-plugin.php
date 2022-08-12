@@ -24,7 +24,7 @@ function dev_menu() {
  * @return void
  */
 function devtest_admin_page() {
-    echo "<div id='app'></div>"; 
+    echo "<div id='admin-app'></div>"; 
 }
 
 /**
@@ -34,5 +34,5 @@ function devtest_admin_page() {
  */
 add_action( 'admin_enqueue_scripts', 'devtest_admin_enqueue_scripts' );
 function devtest_admin_enqueue_scripts() {
-    wp_enqueue_script( 'devtest-script', plugin_dir_url( __FILE__ ) . 'build/build.js', array(), '1.0.0', true );
+    wp_enqueue_script( 'devtest-script', plugin_dir_url( __FILE__ ) . 'assets/js/admin.js', array(), '1.0.0', true );
 }

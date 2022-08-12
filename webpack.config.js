@@ -1,12 +1,29 @@
 var path = require('path')
 var webpack = require('webpack')
 
+var devMode = process.env.NODE_ENV !== 'production';
+
+/**Generate JS File start*/
+var appName = 'wkit';
+var entryPoint = {
+  admin: './src/admin/main.js',
+  elementor: './src/elementor/main.js',
+  gutenberg: './src/gutenberg/main.js',
+};
+var exportPath = path.resolve(__dirname, './assets/js');
+
+if ( devMode ) {
+  appName = '[name].js';
+} else {
+  appName = '[name].min.js';
+}
+/**Generate JS File End*/
+
 module.exports = {
-  entry: './src/main.js',
+  entry: entryPoint,
   output: {
-    path: path.resolve(__dirname, './build'),
-    publicPath: '/build/',
-    filename: 'build.js'
+    path: exportPath,
+    filename: appName,
   },
   module: {
     rules: [
@@ -71,7 +88,11 @@ module.exports = {
   },
   resolve: {
     alias: {
-      'vue$': 'vue/dist/vue.esm.js'
+      'vue$': 'vue/dist/vue.esm.js',
+      '@': path.resolve('./src/'),
+      'admin': path.resolve('./src/admin/'),
+      'elementor': path.resolve('./src/elementor/'),
+      'gutenberg': path.resolve('./src/gutenberg/'),
     },
     extensions: ['*', '.js', '.vue', '.json']
   },
