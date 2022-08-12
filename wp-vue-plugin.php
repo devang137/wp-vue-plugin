@@ -34,5 +34,5 @@ function devtest_admin_page() {
  */
 add_action( 'admin_enqueue_scripts', 'devtest_admin_enqueue_scripts' );
 function devtest_admin_enqueue_scripts() {
-    wp_enqueue_script( 'devtest-script', plugin_dir_url( __FILE__ ) . 'dist/build.js', array(), '1.0.0', true );
+    wp_enqueue_script( 'devtest-script', plugin_dir_url( __FILE__ ) . 'build/build.js', array(), '1.0.0', true );
 }

@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <!-- <img src="./assets/logo.png"> -->
     <img src="./assets/logo.png">
     <h1>{{ msg }}</h1>
     <h2>Essential Links</h2>
@@ -42,16 +43,6 @@ export default {
 
 h1, h2 {
   font-weight: normal;
-}
-
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-li {
-  display: inline-block;
-  margin: 0 10px;
 }
 
 a {
